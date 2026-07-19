@@ -1,109 +1,120 @@
-# Checklist de conformité Kopo Web
+# Kopo Web compliance checklist
 
-À cocher AVANT de livrer un site Kopo. Si une case échoue, corriger avant de présenter.
+Check BEFORE delivering a Kopo site. If any item fails, fix it before presenting.
 
-## Couleurs
+## Colors
 
-- [ ] Couleurs exactes utilisées (HEX précis, pas d'approximation)
-- [ ] **Un seul** élément en Cirrus plein par viewport (le plus important)
-- [ ] Pas de couleur secondaire (Vesper / Aurore / Sirocco) combinée à une autre secondaire
-- [ ] Sirocco utilisé UNIQUEMENT pour alertes / paupière du Kobot — jamais décoratif
-- [ ] Haboob utilisé ponctuellement pour réchauffer une surface, pas en aplat large
-- [ ] Pour les pages fonctionnelles : badges sémantiques (green/amber/red) pour les statuts opérationnels, pas badges colorés décoratifs
+- [ ] Exact colors used (precise HEX, no approximation)
+- [ ] **A single** solid-Cirrus element per viewport (the most important one)
+- [ ] No secondary color (Vesper / Aurore / Sirocco) combined with another secondary
+- [ ] Sirocco used ONLY for alerts / the Kobot's eyelid — never decorative
+- [ ] Haboob used sparingly to warm a surface, never as a large flat fill
+- [ ] On functional pages: semantic badges from the Kopo palette for operational statuses, no decorative colored badges
 
-## Typographie
+## Typography
 
-- [ ] Satoshi chargé localement (WOFF2) + fallback Fontshare CDN
-- [ ] Aucune autre police que Satoshi (Roboto uniquement en fallback système)
-- [ ] Hiérarchie construite par poids (Bold vs Regular), pas par taille
-- [ ] Letter-spacing -0.02em sur les titres
-- [ ] Alignement à gauche par défaut
-- [ ] Pas de justifié (interdit absolu)
-- [ ] Max-width 60ch sur les paragraphes pour la lisibilité
+- [ ] Satoshi loaded locally (WOFF2) + Fontshare CDN fallback
+- [ ] No font other than Satoshi (Roboto only as system fallback)
+- [ ] Hierarchy built with weight (Bold vs Regular), not size
+- [ ] Letter-spacing -0.02em on headings
+- [ ] Left-aligned by default
+- [ ] No justified text (absolute rule)
+- [ ] Max-width 60ch on paragraphs for readability
 
 ## Layout
 
-- [ ] Grille 12 colonnes respectée sur les pages internes
-- [ ] Container max-width 1440px (marketing) ou 1200px (interne)
-- [ ] Padding section généreux : 9rem sur landing, 5rem sur interne
-- [ ] 60-70% d'espace blanc minimum (respiration > remplissage)
-- [ ] Marges responsive via `clamp()` ou variable `--container-px`
+- [ ] 12-column grid respected on internal pages
+- [ ] Container max-width 1440px (marketing) or 1200px (internal)
+- [ ] Generous section padding: 9rem on landing, 5rem on internal
+- [ ] 60–70% whitespace minimum (breathing room > filling)
+- [ ] Responsive margins via `clamp()` or the `--container-px` variable
 
 ## Logo & Kobot
 
-- [ ] Proportions invariantes du Kobot respectées (22% œil, 7% pupille, 7% câble)
-- [ ] Sirocco uniquement pour le cerne de l'œil
-- [ ] Kobot interactif (`data-interactive`) sur le hero — pupille suit la souris
-- [ ] Sur hero landing : Kobot suspendu (`kobot-longarm` + `kobot-swing-anchor`)
-- [ ] Mini-kobot dans nav et footer (`kobot-mini`, 40px)
+- [ ] Invariant Kobot proportions respected (22% eye, 7% pupil, 7% cable)
+- [ ] Sirocco only for the eye ring
+- [ ] Interactive Kobot (`data-interactive`) on the hero — pupil follows the mouse
+- [ ] On landing hero: hanging Kobot (`kobot-longarm` + `kobot-swing-anchor`)
+- [ ] Mini-kobot in nav and footer (`kobot-mini`, 40px)
 
-## Composants
+## Components
 
-- [ ] Barre Cirrus (180×3px) sous chaque H2 sur pages internes
-- [ ] Boutons : `btn-primary` (Nimbus → hover Cirrus), `btn-ghost` (outline Nimbus → hover Cirrus)
-- [ ] Cards avec border `--stratus-soft`, hover → border Cirrus + lift 6px
-- [ ] Icônes Lucide stroke 2px, tailles 16/20/24/32/64/80 uniquement
-- [ ] Section-eyebrow en uppercase Cirrus letter-spacing 0.18em
+- [ ] Cirrus bar (180×3px) under every H2 on internal pages
+- [ ] Buttons: `btn-primary` (Nimbus → hover Cirrus), `btn-ghost` (Nimbus outline → hover Cirrus)
+- [ ] Cards with `--stratus-soft` border, hover → Cirrus border + 6px lift
+- [ ] Lucide icons, 2px stroke, sizes 16/20/24/32/64/80 only
+- [ ] Section eyebrow in uppercase Cirrus, letter-spacing 0.18em
 
-## Animations & interactivité
+## Animations & interactivity
 
-- [ ] `reveal` + `IntersectionObserver` sur les blocs principaux
-- [ ] Nav passe en `scrolled` (blur + fond) après 30px de scroll
-- [ ] Compteurs animés (`data-count`) au scroll
-- [ ] Pendule du Kobot draggable (mobile + desktop)
-- [ ] Burger + drawer fullscreen sur mobile (<800px)
-- [ ] Transitions standard : 0.2s pour hover, 0.4s pour reveal, 0.8s pour reveal long
+- [ ] `reveal` + `IntersectionObserver` on main blocks
+- [ ] Nav switches to `scrolled` (blur + background) after 30px of scroll
+- [ ] Animated counters (`data-count`) on scroll
+- [ ] Kobot pendulum draggable (mobile + desktop)
+- [ ] Burger + fullscreen drawer on mobile (<800px)
+- [ ] Standard transitions: 0.2s for hover, 0.4s for reveal, 0.8s for long reveal
+
+## Animated Kobot (if embedded as SVG — see `kobot-animation.md`)
+
+- [ ] Canonical anatomy respected (IDs, articulation groups, `clip-oeil` + `fenetre` clips)
+- [ ] No deformation of the Kobot: only its environment and limbs move
+- [ ] Vertical animations relative to `var(--drop)`; combinable states tested together
+- [ ] Blink via clipped eyelids (r=118), never by deforming the eye
+- [ ] Cable vertical, extended beyond the window when swinging
+- [ ] `prefers-reduced-motion` → static Kobot, eyes open
+- [ ] Every animation has contextual MEANING (system state, user reaction) — no gratuitous motion
+- [ ] One animated Kobot per page
 
 ## Footer
 
-- [ ] Fond Nimbus, texte Cumulus / Stratus
-- [ ] Grille 4 colonnes (1.5fr 1fr 1fr 1fr) → 2 colonnes en tablette → 1 en mobile
-- [ ] Headings de colonne : 0.72rem uppercase, letter-spacing 0.18em, Stratus
-- [ ] Copyright en bas avec border-top 1px rgba(255,255,255,0.12)
-- [ ] Mention "© {YEAR} Kopo® · Tous droits réservés. Kopo est une marque déposée."
+- [ ] Nimbus background, Cumulus / Stratus text
+- [ ] 4-column grid (1.5fr 1fr 1fr 1fr) → 2 columns on tablet → 1 on mobile
+- [ ] Column headings: 0.72rem uppercase, letter-spacing 0.18em, Stratus
+- [ ] Copyright at the bottom with border-top 1px rgba(255,255,255,0.12)
+- [ ] Notice « © {YEAR} Kopo® · Tous droits réservés. Kopo est une marque déposée. »
 
-## Accessibilité
+## Accessibility
 
-- [ ] `lang="fr"` sur `<html>`
-- [ ] `aria-label` sur les icônes décoratives et boutons sans texte
-- [ ] `aria-hidden="true"` sur les SVG décoratifs
-- [ ] Contraste suffisant entre Nimbus et fonds clairs (vérifié natif)
-- [ ] Focus visible sur les liens et boutons (outline natif Satoshi)
-- [ ] `<meta name="viewport">` présent
+- [ ] `lang="fr"` on `<html>`
+- [ ] `aria-label` on decorative icons and buttons without text
+- [ ] `aria-hidden="true"` on decorative SVGs
+- [ ] Sufficient contrast between Nimbus and light backgrounds (natively verified)
+- [ ] Visible focus on links and buttons
+- [ ] `<meta name="viewport">` present
 
 ## Responsive
 
-- [ ] Breakpoint 800px : nav devient burger, hero passe en 1 colonne
-- [ ] Breakpoint 768px : grille 12 → toutes colonnes en `span 12`
-- [ ] Breakpoint 480px : footer en 1 colonne, stats 1 colonne
-- [ ] Aucun débordement horizontal (vérifier `overflow-x: hidden` sur body)
+- [ ] 800px breakpoint: nav becomes burger, hero switches to 1 column
+- [ ] 768px breakpoint: 12-col grid → all columns `span 12`
+- [ ] 480px breakpoint: footer in 1 column, stats in 1 column
+- [ ] No horizontal overflow (check `overflow-x: hidden` on body)
 
 ## Performance
 
-- [ ] Bannières JPG compressées (~400 KB max, qualité 82)
-- [ ] Polices Satoshi en `font-display: swap`
-- [ ] Pas de framework JS lourd
-- [ ] Images avec `loading="lazy"` sauf le hero
-- [ ] `backdrop-filter` n'est appliqué que sur la nav et le drawer
+- [ ] JPG banners compressed (~400 KB max, quality 82)
+- [ ] Satoshi fonts with `font-display: swap`
+- [ ] No heavy JS framework
+- [ ] Images with `loading="lazy"` except the hero
+- [ ] `backdrop-filter` only on the nav and the drawer
 
-## Pages fonctionnelles (templates internal et app)
+## Functional pages (internal and app templates)
 
-- [ ] `components.css` importé en complément de `shared.css`
-- [ ] Header en `.nav-sticky` (sticky simple, pas de blur fancy)
-- [ ] Si dense en données : `.data-table` avec `<thead>` distinct, `.num` sur les colonnes chiffrées
-- [ ] Statuts opérationnels via `.kopo-badge.badge-virga` (OK), `.badge-haboob` (dégradé), `.badge-sirocco` (incident critique) — pas de vert, pas d'ambre, jamais hors charte
-- [ ] LED visuel pour states live : `.led.on / .live / .warn / .alert`
-- [ ] Loading states via `.skel` ou `.kopo-spinner`, jamais page blanche
-- [ ] Score bars (`.score-bar` + `.score-fill`) pour les progressions / mesures
-- [ ] Callouts (`.callout.info/warn/error/success`) pour les messages importants
-- [ ] Filter bar (`.filter-bar`) avec labels en uppercase Stratus 0.7rem
-- [ ] Tabular numbers (`font-variant-numeric: tabular-nums`) sur les colonnes de chiffres
-- [ ] Mobile : tables en `overflow-x: auto` (déjà géré par `.data-table` au breakpoint 768px)
-- [ ] KPI grid : 4 cartes en desktop, 2 en tablette, 1 en mobile
+- [ ] `components.css` imported alongside `shared.css`
+- [ ] Header as `.nav-sticky` (simple sticky, no fancy blur)
+- [ ] If data-dense: `.data-table` with distinct `<thead>`, `.num` on numeric columns
+- [ ] Operational statuses via `.kopo-badge.badge-virga` (OK), `.badge-haboob` (degraded), `.badge-sirocco` (critical incident) — no green, no amber, never off-palette
+- [ ] Visual LED for live states: `.led.on / .live / .warn / .alert`
+- [ ] Loading states via `.skel` or `.kopo-spinner`, never a blank page
+- [ ] Score bars (`.score-bar` + `.score-fill`) for progress / measurements
+- [ ] Callouts (`.callout.info/warn/error/success`) for important messages
+- [ ] Filter bar (`.filter-bar`) with labels in uppercase Stratus 0.7rem
+- [ ] Tabular numbers (`font-variant-numeric: tabular-nums`) on numeric columns
+- [ ] Mobile: tables in `overflow-x: auto` (already handled by `.data-table` at the 768px breakpoint)
+- [ ] KPI grid: 4 cards on desktop, 2 on tablet, 1 on mobile
 
-## Légal
+## Legal
 
-- [ ] Mentions légales accessibles depuis le footer
-- [ ] Privacy policy accessible depuis le footer
-- [ ] Pour KoBot Discord : ToS + Privacy obligatoires
-- [ ] Copyright Kopo + marque déposée mentionnés
+- [ ] Legal notices reachable from the footer
+- [ ] Privacy policy reachable from the footer
+- [ ] For KoBot Discord: ToS + Privacy mandatory
+- [ ] Kopo copyright + registered trademark mentioned

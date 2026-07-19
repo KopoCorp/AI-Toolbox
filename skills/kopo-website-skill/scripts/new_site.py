@@ -3,15 +3,15 @@
 Kopo Website Scaffolder
 =======================
 
-Génère un nouveau site web Kopo en copiant les assets, CSS, JS du skill
-et en remplissant le template HTML choisi (landing | internal | legal).
+Generates a new Kopo website by copying the skill's assets, CSS and JS
+and filling in the chosen HTML template (landing | internal | legal).
 
 Usage:
     python new_site.py --config config.json --out /path/to/output
     python new_site.py --template landing --brand "Kopo Cloud" --out ./mysite
     python new_site.py --interactive
 
-Le fichier config.json suit la structure :
+The config.json file follows this structure (site copy stays in French):
 {
     "template": "landing",                # landing | internal | legal
     "brand_name": "Kopo Cloud",

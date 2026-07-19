@@ -1,3 +1,18 @@
 [submodule "skills/humanizer"]
 	path = skills/humanizer
 	url = https://github.com/blader/humanizer.git
+[submodule "skills/dev-methodology"]
+	path = skills/dev-methodology
+	url = https://github.com/obra/superpowers.git
+[submodule "skills/llm-coding-guidelines"]
+	path = skills/llm-coding-guidelines
+	url = https://github.com/multica-ai/andrej-karpathy-skills.git
+[submodule "skills/find-skills"]
+	path = skills/find-skills
+	url = https://github.com/vercel-labs/skills.git
+[submodule "skills/agent-browser"]
+	path = skills/agent-browser
+	url = https://github.com/vercel-labs/agent-browser.git
+[submodule "skills/grill-me"]
+	path = skills/clarify-before-coding
+	url = https://github.com/mattpocock/skills.git

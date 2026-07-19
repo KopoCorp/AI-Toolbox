@@ -1,14 +1,14 @@
-# Catalogue des sections Kopo (snippets HTML)
+# Kopo section catalog (HTML snippets)
 
-Ce fichier contient les **briques HTML prêtes à coller** dans les templates. Chaque snippet respecte la charte V1.4 (palette, typographie, espacement, accentuation unique). Substituer les placeholders `{{...}}` aux vraies valeurs.
+This file contains the **ready-to-paste HTML bricks** for the templates. Every snippet follows the V1.4 brand rules (palette, typography, spacing, single accent). Replace the `{{...}}` placeholders with real values. User-facing strings stay in French (Kopo sites are French).
 
-## 1. Carte de feature (3 cartes en grille — pour `{{FEATURES_CARDS}}`)
+## 1. Feature card (3 cards in a grid — for `{{FEATURES_CARDS}}`)
 
 ```html
 <article class="service-card reveal delay-1">
   <div class="icon-circle">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <!-- SVG inline ou icône Lucide. Stroke 2px, jamais filled. -->
+      <!-- Inline SVG or Lucide icon. 2px stroke, never filled. -->
       {{ICON_SVG}}
     </svg>
   </div>
@@ -23,9 +23,9 @@ Ce fichier contient les **briques HTML prêtes à coller** dans les templates. C
 </article>
 ```
 
-Reproduire 3 fois avec `delay-1`, `delay-2`, `delay-3` et incrémenter le numéro (`01`, `02`, `03`).
+Repeat 3 times with `delay-1`, `delay-2`, `delay-3` and increment the number (`01`, `02`, `03`).
 
-## 2. Bloc infra-feature (sur gradient Halo — pour `{{INFRA_FEATURES}}`)
+## 2. Infra-feature block (on the Halo gradient — for `{{INFRA_FEATURES}}`)
 
 ```html
 <div class="infra-feature reveal delay-1">
@@ -39,7 +39,7 @@ Reproduire 3 fois avec `delay-1`, `delay-2`, `delay-3` et incrémenter le numér
 </div>
 ```
 
-## 3. Bloc statistique (pour `{{STATS_BLOCKS}}`)
+## 3. Statistic block (for `{{STATS_BLOCKS}}`)
 
 ```html
 <div class="stat-block reveal delay-1">
@@ -48,11 +48,11 @@ Reproduire 3 fois avec `delay-1`, `delay-2`, `delay-3` et incrémenter le numér
 </div>
 ```
 
-Le compteur s'anime au scroll. `data-decimals` accepte 0, 1 ou 2.
+The counter animates on scroll. `data-decimals` accepts 0, 1 or 2.
 
-## 4. Card de pricing (pour `{{PRICING_CARDS}}`)
+## 4. Pricing card (for `{{PRICING_CARDS}}`)
 
-Carte standard :
+Standard card:
 
 ```html
 <div class="price-card reveal delay-1">
@@ -62,22 +62,22 @@ Carte standard :
   <ul class="price-features">
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {{FEATURE_1}}</li>
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> {{FEATURE_2}}</li>
-    <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg> {{FEATURE_DESACTIVE}}</li>
+    <li class="muted"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg> {{FEATURE_DISABLED}}</li>
   </ul>
   <a href="#cta" class="btn btn-outline">{{CTA_LABEL}}</a>
 </div>
 ```
 
-Carte mise en avant : ajouter la classe `featured` et utiliser `btn-primary`. Une SEULE carte `featured` par page (règle d'unicité d'accent).
+Highlighted card: add the `featured` class and use `btn-primary`. ONE `featured` card per page only (single-accent rule).
 
 ```html
 <div class="price-card featured reveal delay-2">
-  <!-- ... pareil ... -->
+  <!-- ... same ... -->
   <a href="#cta" class="btn btn-primary">{{CTA_LABEL}}</a>
 </div>
 ```
 
-## 5. Item de FAQ (accordéon natif — pour `{{FAQ_ITEMS}}`)
+## 5. FAQ item (native accordion — for `{{FAQ_ITEMS}}`)
 
 ```html
 <details class="faq-item reveal">
@@ -89,7 +89,7 @@ Carte mise en avant : ajouter la classe `featured` et utiliser `btn-primary`. Un
 </details>
 ```
 
-## 6. Section de contenu pour page interne (pour `{{CONTENT_SECTIONS}}`)
+## 6. Content section for internal pages (for `{{CONTENT_SECTIONS}}`)
 
 ```html
 <section id="{{ID}}">
@@ -99,20 +99,20 @@ Carte mise en avant : ajouter la classe `featured` et utiliser `btn-primary`. Un
     <div class="cirrus-bar"></div>
     <div class="grid-12" style="gap:32px;margin-top:24px;">
       <div class="col-span-7">
-        <p>{{PARAGRAPHE}}</p>
+        <p>{{PARAGRAPH}}</p>
         <a href="{{HREF}}" class="btn btn-primary">{{CTA}}</a>
       </div>
       <div class="col-span-5">
-        <!-- visuel, capture, ou bloc info -->
+        <!-- visual, screenshot, or info block -->
       </div>
     </div>
   </div>
 </section>
 ```
 
-Alterner avec `<section class="section-alt">` pour le fond `#F7F8FA` (Stratus dilué).
+Alternate with `<section class="section-alt">` for the `#F7F8FA` background (diluted Stratus).
 
-## 7. Colonne de footer (pour `{{FOOTER_COLUMNS}}`)
+## 7. Footer column (for `{{FOOTER_COLUMNS}}`)
 
 ```html
 <div>
@@ -124,11 +124,11 @@ Alterner avec `<section class="section-alt">` pour le fond `#F7F8FA` (Stratus di
 </div>
 ```
 
-3 colonnes après le bloc brand suffisent (la grille footer est en `1.5fr 1fr 1fr 1fr`).
+3 columns after the brand block are enough (the footer grid is `1.5fr 1fr 1fr 1fr`).
 
-## 8. SVG inline · icônes courantes (style Lucide, stroke 2px)
+## 8. Inline SVG · common icons (Lucide style, 2px stroke)
 
-Toutes les icônes ci-dessous prennent `currentColor`, donc pilotables par CSS.
+All icons below use `currentColor`, so they can be driven by CSS.
 
 ```html
 <!-- mail -->
@@ -162,14 +162,14 @@ Toutes les icônes ci-dessous prennent `currentColor`, donc pilotables par CSS.
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
 ```
 
-Pour toute autre icône, utiliser le set Lucide complet : https://lucide.dev/icons/
+For any other icon, use the full Lucide set: https://lucide.dev/icons/
 
-## 9. Règles d'or pour assembler une page Kopo
+## 9. Golden rules for assembling a Kopo page
 
-- **Une seule** carte/bouton/élément en `Cirrus` plein par viewport.
-- **Manifesto facultatif** — l'inclure quand le ton est éditorial ; le retirer pour les produits techniques purs.
-- **Stats** : 3 ou 4 blocs maximum, valeurs animées au scroll via `data-count`.
-- **Pricing** : 3 paliers Découverte / Standard (`featured`) / Avancé. Si un seul prix, utiliser une carte centrée pleine largeur.
-- **FAQ** : 4 à 6 questions courantes. Plus → externaliser dans une page FAQ dédiée.
-- **CTA band** : toujours finir par un bandeau qui ramène vers l'action principale (essayer, contact, démo).
-- **Footer Nimbus 4 colonnes** : brand + 3 colonnes de liens. Ne pas surcharger.
+- **A single** solid-`Cirrus` card/button/element per viewport.
+- **Manifesto optional** — include it when the tone is editorial; drop it for purely technical products.
+- **Stats**: 3 or 4 blocks maximum, values animated on scroll via `data-count`.
+- **Pricing**: 3 tiers Découverte / Standard (`featured`) / Avancé. If there is a single price, use one centered full-width card.
+- **FAQ**: 4 to 6 common questions. More → move to a dedicated FAQ page.
+- **CTA band**: always end with a band leading back to the main action (try, contact, demo).
+- **Nimbus footer, 4 columns**: brand + 3 link columns. Don't overload it.

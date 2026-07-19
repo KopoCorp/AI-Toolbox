@@ -1,49 +1,50 @@
 # Kopo Website Skill
 
-Skill Claude pour générer des sites web conformes à la charte Kopo V1.4.
+Agent skill for generating websites compliant with the Kopo V1.4 brand guidelines.
 
-## Démarrage rapide
+## Quick start
 
-### Avec Claude
-Mentionnez simplement votre besoin : « fais-moi une landing pour Kopo Cloud », « génère une page de mentions légales pour kopo.systems », etc. Claude détectera ce skill et l'appliquera automatiquement.
+### With an AI agent
+Just state your need: "build me a landing for Kopo Cloud", "generate a legal notices page for kopo.systems", etc. The agent will detect this skill and apply it automatically.
 
-### En CLI (scaffolder Python)
+### CLI (Python scaffolder)
 ```bash
-python scripts/new_site.py --config exemple-config.json --out ./mon-site
+python scripts/new_site.py --config exemple-config.json --out ./my-site
 ```
 
 ## Architecture
 
-- `assets/` : logos, illustrations, polices officielles
-- `css/` : `shared.css` (toutes pages) + `landing.css` (sections marketing)
-- `js/` : `shared.js` (Kobot interactif, reveal, nav, drawer mobile)
-- `templates/` : trois variantes (`landing/`, `internal/`, `legal/`)
-- `references/` : catalogue de sections + checklist de conformité
-- `scripts/` : scaffolder Python `new_site.py`
+- `assets/`: official logos, illustrations, fonts
+- `css/`: `shared.css` (all pages) + `landing.css` (marketing sections) + `components.css` (functional components)
+- `js/`: `shared.js` (interactive Kobot, reveal, nav, mobile drawer)
+- `templates/`: four variants (`landing/`, `internal/`, `app/`, `legal/`)
+- `references/`: section catalogs + compliance checklist + design/animation method guides
+- `scripts/`: Python scaffolder `new_site.py`
 
-## Deux styles cohabitent
+## Coexisting styles
 
-| Style | Référence dans l'écosystème | Template |
+| Style | Reference in the ecosystem | Template |
 |---|---|---|
-| Marketing riche, hero immersif | KopoHome (kopo.systems) | `landing/` |
-| Sobre, dense, grille 12 colonnes | Kopo Download (download.kopo.systems) | `internal/` |
-| Une colonne 780px, hiérarchie H2 | (nouveau) | `legal/` |
+| Rich marketing, immersive hero | KopoHome (kopo.systems) | `landing/` |
+| Sober, dense, 12-column grid | Kopo Download (download.kopo.systems) | `internal/` |
+| Functional app: KPIs, listings, filters | Itaycan | `app/` |
+| Single 780px column, H2 hierarchy | (new) | `legal/` |
 
-## Conformité
+## Compliance
 
-Avant livraison, parcourir `references/checklist.md`. Les règles d'or :
+Before delivery, go through `references/checklist.md`. The golden rules:
 
-1. Un seul élément en Cirrus plein par viewport
-2. Satoshi exclusive, fallback Roboto système
-3. Aligné à gauche, jamais justifié
-4. Proportions invariantes du Kobot (22% / 7% / 7%)
-5. 60-70% d'espace blanc minimum
-6. Footer Nimbus systématique
+1. A single solid-Cirrus element per viewport
+2. Satoshi exclusively, Roboto system fallback
+3. Left-aligned, never justified
+4. Invariant Kobot proportions (22% / 7% / 7%)
+5. 60–70% whitespace minimum
+6. Nimbus footer, always
 
-## Licences
+## Licenses
 
 - Satoshi · Indian Type Foundry
 - Lucide icons · ISC
-- Assets Kopo · usage interne Kopo uniquement, marque déposée
+- Kopo assets · Kopo internal use only, registered trademark
 
 Brest, France · contact@kopo.systems

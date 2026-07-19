@@ -1,10 +1,10 @@
-# Catalogue des composants fonctionnels Kopo
+# Kopo functional component catalog
 
-À utiliser pour les templates `internal/` et `app/`. Pour les sections marketing (hero, manifesto, pricing, FAQ, CTA band), voir `sections-catalog.md`.
+Use for the `internal/` and `app/` templates. For marketing sections (hero, manifesto, pricing, FAQ, CTA band), see `sections-catalog.md`.
 
-Tous ces composants reposent sur `css/components.css` qui doit être inclus en complément de `css/shared.css`.
+All these components rely on `css/components.css`, which must be included alongside `css/shared.css`. User-facing strings stay in French (Kopo sites are French).
 
-## 1. KPI Grid (4 cartes de mesure)
+## 1. KPI Grid (4 metric cards)
 
 ```html
 <div class="kpi-grid">
@@ -13,49 +13,49 @@ Tous ces composants reposent sur `css/components.css` qui doit être inclus en c
     <div class="kpi-value">{{NUMBER}}<span class="unit">{{UNIT}}</span></div>
     <div class="kpi-delta up">↑ {{DELTA}}</div>
   </div>
-  <!-- répéter 3 fois -->
+  <!-- repeat 3 more times -->
 </div>
 ```
 
-Les modifieurs `kpi-delta` : `.up` (vert), `.down` (Sirocco), `.flat` (Stratus).
+`kpi-delta` modifiers: `.up`, `.down` (Sirocco), `.flat` (Stratus).
 
-## 2. Badges (palette Kopo stricte, aucune couleur hors charte)
+## 2. Badges (strict Kopo palette, no off-brand colors)
 
-Le mapping sémantique repose sur la palette officielle. Le bleu Kopo signifie « bon / actif » par convention de marque, et c'est délibéré.
+The semantic mapping relies on the official palette. Kopo blue means "good / active" by brand convention, and that is deliberate.
 
 ```html
-<!-- Actif / OK / sain (Cirrus = principal, Virga = secondaire plus doux) -->
+<!-- Active / OK / healthy (Cirrus = primary, Virga = softer secondary) -->
 <span class="kopo-badge badge-cirrus">Actif</span>
 <span class="kopo-badge badge-virga">En ligne</span>
 
-<!-- Info / nouveau / disponible (Arcus dilué, texte Vesper) -->
+<!-- Info / new / available (diluted Arcus, Vesper text) -->
 <span class="kopo-badge badge-arcus">Nouveau</span>
 
-<!-- Désactivé / brouillon / neutre (Stratus) -->
+<!-- Disabled / draft / neutral (Stratus) -->
 <span class="kopo-badge badge-stratus">Brouillon</span>
 
-<!-- Attention douce / beta / en attente (Haboob = beige chaud avec contour) -->
+<!-- Soft warning / beta / pending (Haboob = warm beige with outline) -->
 <span class="kopo-badge badge-haboob">Beta</span>
 <span class="kopo-badge badge-haboob">Dégradé</span>
 
-<!-- Majeur / premium / éditorial (Aurore = mauve crépusculaire) -->
+<!-- Major / premium / editorial (Aurore = twilight mauve) -->
 <span class="kopo-badge badge-aurore">Majeur</span>
 <span class="kopo-badge badge-aurore">Premium</span>
 
-<!-- Éditorial fort (Vesper = mauve nuit) -->
+<!-- Strong editorial (Vesper = night mauve) -->
 <span class="kopo-badge badge-vesper">Privé</span>
 
-<!-- Erreur / alerte critique (Sirocco — usage RARE et intentionnel) -->
+<!-- Error / critical alert (Sirocco — RARE and intentional use) -->
 <span class="kopo-badge badge-sirocco">Hors ligne</span>
 ```
 
-**Règles** :
-- Un seul `badge-cirrus` par ligne / item — c'est l'accent principal de la composition.
-- `badge-sirocco` est réservé aux incidents critiques (service down, perte de données). Ne JAMAIS l'utiliser pour une simple baisse ou un statut « warning ».
-- Pour les statuts « beta / dégradé / en attente », `badge-haboob` est le bon choix : il signale sans alarmer.
-- `badge-aurore` pour distinguer (« majeur », « premium », « nouveau »).
+**Rules**:
+- One `badge-cirrus` per row / item — it's the composition's main accent.
+- `badge-sirocco` is reserved for critical incidents (service down, data loss). NEVER use it for a mere dip or a "warning" status.
+- For "beta / degraded / pending" statuses, `badge-haboob` is the right choice: it signals without alarming.
+- `badge-aurore` to distinguish ("majeur", "premium", "nouveau").
 
-## 3. Score bar (progress visuel)
+## 3. Score bar (visual progress)
 
 ```html
 <div style="display:flex; align-items:center; gap:0.75rem;">
@@ -66,9 +66,9 @@ Le mapping sémantique repose sur la palette officielle. Le bleu Kopo signifie �
 </div>
 ```
 
-Variantes : `score-fill.aurore` (violet), `score-fill.red` (alerte).
+Variants: `score-fill.aurore` (purple), `score-fill.red` (alert).
 
-## 4. LED de statut (live, dégradé, alerte)
+## 4. Status LED (live, degraded, alert)
 
 ```html
 <span class="led on" aria-label="En ligne"></span>      <!-- Cirrus -->
@@ -78,27 +78,27 @@ Variantes : `score-fill.aurore` (violet), `score-fill.red` (alerte).
 <span class="led" aria-label="Inconnu"></span>          <!-- Stratus -->
 ```
 
-Les LED suivent la même hiérarchie que les badges : Cirrus pour OK, Haboob pour attention douce, Sirocco pour incident critique uniquement.
+LEDs follow the same hierarchy as badges: Cirrus for OK, Haboob for soft warning, Sirocco for critical incidents only.
 
-## 5. Spinner Kopo (chargement)
+## 5. Kopo spinner (loading)
 
 ```html
 <div class="kopo-spinner" aria-label="Chargement"></div>
 ```
 
-40×40 par défaut. Pour une taille personnalisée :
+40×40 by default. For a custom size:
 ```html
 <div class="kopo-spinner" style="width:24px; height:24px;"></div>
 ```
 
-## 6. Skeleton (placeholder loading)
+## 6. Skeleton (loading placeholder)
 
 ```html
 <div class="skel" style="height:1rem; width:60%;"></div>
 <div class="skel" style="height:1.5rem; width:40%; margin-top:0.5rem;"></div>
 ```
 
-S'utilise dans une carte qui attend ses vraies données :
+Used inside a card waiting for its real data:
 ```html
 <div class="kopo-card kopo-card-padded">
   <div class="skel" style="height:0.7rem; width:30%;"></div>
@@ -106,7 +106,7 @@ S'utilise dans une carte qui attend ses vraies données :
 </div>
 ```
 
-## 7. Filter bar (dense form de filtres)
+## 7. Filter bar (dense filter form)
 
 ```html
 <div class="filter-bar">
@@ -129,9 +129,9 @@ S'utilise dans une carte qui attend ses vraies données :
 </div>
 ```
 
-La grille s'adapte automatiquement (`minmax(140px, 1fr)`). Empile en colonnes étroites.
+The grid adapts automatically (`minmax(140px, 1fr)`). Stacks in narrow columns.
 
-## 8. Data table (tableau dense)
+## 8. Data table (dense table)
 
 ```html
 <table class="data-table">
@@ -157,19 +157,19 @@ La grille s'adapte automatiquement (`minmax(140px, 1fr)`). Empile en colonnes é
       <td class="num">42 800 €</td>
       <td class="num muted">12 mars 2026</td>
     </tr>
-    <!-- répéter -->
+    <!-- repeat -->
   </tbody>
 </table>
 ```
 
-Modifier : `data-table.compact` pour des lignes plus serrées.
+Modifier: `data-table.compact` for tighter rows.
 
-## 9. Listing card (carte média + titre + prix, façon Itaycan)
+## 9. Listing card (media + title + price card, Itaycan style)
 
 ```html
 <div class="listing-card">
   <div class="visual">
-    <!-- image, icône, ou aplat Halo -->
+    <!-- image, icon, or Halo flat fill -->
     <img src="..." alt="..." style="width:100%; height:100%; object-fit:cover;" />
   </div>
   <div class="body">
@@ -188,7 +188,7 @@ Modifier : `data-table.compact` pour des lignes plus serrées.
 </div>
 ```
 
-À placer dans un conteneur `.listing-grid` qui adapte le nombre de colonnes selon la largeur.
+Place inside a `.listing-grid` container which adapts the column count to the width.
 
 ## 10. App shell (sidebar + main)
 
@@ -207,17 +207,17 @@ Modifier : `data-table.compact` pour des lignes plus serrées.
     </ul>
   </aside>
   <div class="app-main">
-    <!-- contenu de la page -->
+    <!-- page content -->
   </div>
 </div>
 ```
 
-`active` sur le lien courant. En `<900px`, la sidebar passe au-dessus du contenu en bloc plein.
+`active` on the current link. Below `900px`, the sidebar moves above the content as a full-width block.
 
-## 11. Callout / Alert (palette Kopo stricte)
+## 11. Callout / Alert (strict Kopo palette)
 
 ```html
-<!-- Info / contexte / note (bordure et icône Cirrus) -->
+<!-- Info / context / note (Cirrus border and icon) -->
 <div class="callout info">
   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><circle cx="12" cy="8" r=".5"/></svg>
   <div class="body">
@@ -226,17 +226,17 @@ Modifier : `data-table.compact` pour des lignes plus serrées.
   </div>
 </div>
 
-<!-- Tip / suggestion (bordure et icône Aurore) -->
+<!-- Tip / suggestion (Aurore border and icon) -->
 <div class="callout tip"> ... </div>
 
-<!-- Attention douce (bordure brun-Haboob, fond Haboob clair) -->
+<!-- Soft warning (Haboob-brown border, light Haboob background) -->
 <div class="callout warn"> ... </div>
 
-<!-- Erreur critique (bordure et icône Sirocco — usage rare) -->
+<!-- Critical error (Sirocco border and icon — rare use) -->
 <div class="callout error"> ... </div>
 ```
 
-Quatre variantes seulement. Pas de `success` séparé : un événement positif relève de `info`. Le vert n'existe pas dans la charte Kopo, et c'est volontaire.
+Four variants only. No separate `success`: a positive event belongs to `info`. Green does not exist in the Kopo palette, and that is deliberate.
 
 ## 12. Breadcrumb
 
@@ -250,7 +250,7 @@ Quatre variantes seulement. Pas de `success` séparé : un événement positif r
 </nav>
 ```
 
-## 13. Code block (pour documentation)
+## 13. Code block (for documentation)
 
 ```html
 <div class="code-block">
@@ -264,12 +264,12 @@ docker run -d \
 </div>
 ```
 
-Pour de l'inline :
+Inline:
 ```html
 Lancez la commande <span class="code-inline">systemctl status kopo</span> pour vérifier.
 ```
 
-## 14. Section avec grille 12 colonnes (style Kopo Download)
+## 14. Section with 12-column grid (Kopo Download style)
 
 ```html
 <section id="{{ID}}" class="container" style="padding: 4rem 0;">
@@ -279,19 +279,19 @@ Lancez la commande <span class="code-inline">systemctl status kopo</span> pour v
 
   <div class="grid-12" style="gap:32px; margin-top:24px;">
     <div class="col-span-7">
-      <p>{{PARAGRAPHE_PRINCIPAL}}</p>
+      <p>{{MAIN_PARAGRAPH}}</p>
       <a href="#" class="btn btn-primary">{{CTA}}</a>
     </div>
     <div class="col-span-5">
-      <!-- visuel, code block, callout, ou aperçu -->
+      <!-- visual, code block, callout, or preview -->
     </div>
   </div>
 </section>
 ```
 
-Alterner avec `<section class="section-alt">` (fond #F7F8FA) pour rythmer.
+Alternate with `<section class="section-alt">` (background #F7F8FA) for rhythm.
 
-## 15. Page title row (titre + actions de toolbar)
+## 15. Page title row (title + toolbar actions)
 
 ```html
 <div class="page-title-row">
@@ -305,13 +305,13 @@ Alterner avec `<section class="section-alt">` (fond #F7F8FA) pour rythmer.
 </div>
 ```
 
-## Règles d'or pour pages fonctionnelles
+## Golden rules for functional pages
 
-- **Densité OK, désordre non.** L'aération de marque s'applique encore : utiliser `gap` et `padding` généreux dans les conteneurs, même si le contenu est dense.
-- **Un seul Cirrus actif par viewport** : si KPI cards + bouton primaire + LED live, choisir lequel mérite Cirrus, le reste en neutre.
-- **Aucune couleur hors charte.** Pas de vert, pas d'ambre, pas de bleu marine, pas de rouge autre que Sirocco. Le bleu Kopo signifie « bon », point.
-- **Sirocco rare et intentionnel** : uniquement pour les incidents critiques (service down, perte). Une simple latence élevée → Haboob, pas Sirocco.
-- **Tabular numbers** : tous les chiffres en colonnes doivent porter `font-variant-numeric: tabular-nums` (déjà sur `.data-table .num`).
-- **Loading states** : pas de page blanche, toujours skeletons ou spinner pendant le fetch.
-- **Pas de tableau pleine largeur sans `overflow-x: auto`** sur mobile (déjà géré par `.data-table` en breakpoint).
-- **Hero optionnel** : sur une page d'app interne, le `page-title-row` avec h1 + barre Cirrus suffit. Ne mettre un hero Halo que si la page mérite un accent éditorial fort (page d'accueil de l'app, par exemple).
+- **Density is fine, clutter is not.** The brand's breathing room still applies: use generous `gap` and `padding` in containers, even with dense content.
+- **A single active Cirrus per viewport**: if there are KPI cards + a primary button + a live LED, choose which one deserves Cirrus; the rest stays neutral.
+- **No off-palette color.** No green, no amber, no navy, no red other than Sirocco. Kopo blue means "good", period.
+- **Sirocco rare and intentional**: only for critical incidents (service down, loss). Mere high latency → Haboob, not Sirocco.
+- **Tabular numbers**: every numeric column must use `font-variant-numeric: tabular-nums` (already on `.data-table .num`).
+- **Loading states**: no blank page — always skeletons or a spinner during fetch.
+- **No full-width table without `overflow-x: auto`** on mobile (already handled by `.data-table` at the breakpoint).
+- **Hero optional**: on an internal app page, the `page-title-row` with h1 + Cirrus bar is enough. Only use a Halo hero when the page deserves a strong editorial accent (the app's home page, for example).
