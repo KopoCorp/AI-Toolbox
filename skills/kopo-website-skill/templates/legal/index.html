@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{META_DESC}}" />
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="icon" type="image/x-icon" href="assets/logos/kopologo.ico" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <style>
+    .nav { position: sticky; background: var(--cumulus); border-bottom: 1px solid var(--stratus); backdrop-filter: none; }
+    main { max-width: 780px; margin: 0 auto; padding: 7rem var(--container-px) 6rem; }
+    .legal-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
+    .legal-meta { margin-top: 0.5rem; font-size: 0.85rem; color: var(--nimbus-soft); }
+    .legal-content h2 {
+      font-size: 1.35rem; font-weight: 700; margin-top: 3rem; margin-bottom: 0.6rem;
+      letter-spacing: -0.015em;
+    }
+    .legal-content h2::after {
+      content: ''; display: block;
+      width: 90px; height: 3px; background: var(--cirrus);
+      border-radius: 2px; margin-top: 0.6rem;
+    }
+    .legal-content h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.8rem; margin-bottom: 0.4rem; }
+    .legal-content p { font-size: 0.95rem; color: var(--nimbus-soft); line-height: 1.65; margin-bottom: 1rem; max-width: 65ch; }
+    .legal-content ul { margin: 0.8rem 0 1.4rem 1.4rem; list-style: disc; }
+    .legal-content ul li { font-size: 0.95rem; color: var(--nimbus-soft); line-height: 1.55; margin-bottom: 0.4rem; }
+    .legal-content a { color: var(--cirrus); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="kobot-mini"></span>
+      <span>{{BRAND_NAME}}<sup>®</sup></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Retour</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <aside class="nav-mobile" id="navMobile" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      <li><a href="index.html">Retour à l'accueil</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <h1 class="legal-title">{{LEGAL_TITLE}}</h1>
+    <p class="legal-meta">{{LEGAL_META}}</p>
+
+    <div class="legal-content">
+      {{LEGAL_BODY}}
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="kobot-mini"></span><span>{{BRAND_NAME}}<sup>®</sup></span></div>
+        <p>{{FOOTER_TAGLINE}}</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{YEAR}} Kopo® · Tous droits réservés.</span>
+      <span>Brest, France</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+</body>
+</html>

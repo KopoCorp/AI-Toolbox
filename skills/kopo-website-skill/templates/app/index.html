@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{META_DESC}}" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="icon" type="image/x-icon" href="assets/logos/kopologo.ico" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body style="min-height:100vh; display:flex; flex-direction:column;">
+
+  <!-- ====================================================================
+       NAV sticky (style Itaycan)
+       ==================================================================== -->
+  <header class="nav-sticky">
+    <a href="#" class="nav-logo" aria-label="{{APP_NAME}}">
+      <span class="kobot-mini"></span>
+      <span>{{APP_NAME}}</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        {{NAV_LINKS}}
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      <span class="kopo-badge badge-stratus">{{USER_LABEL}}</span>
+      <a href="{{NAV_CTA_HREF}}" class="nav-cta">{{NAV_CTA}}</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <aside class="nav-mobile" id="navMobile" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      {{NAV_LINKS_MOBILE}}
+    </ul>
+  </aside>
+
+  <main style="flex:1; padding: 2.5rem var(--container-px); max-width: var(--container-max); margin: 0 auto; width: 100%;">
+
+    <!-- ====================================================================
+         Optional Hero Halo (à utiliser UNIQUEMENT si l'écran a besoin
+         d'un accent éditorial fort. Par défaut, le simple page-title-row
+         ci-dessous suffit pour une page interne sobre.)
+         ==================================================================== -->
+    {{HERO_BLOCK}}
+
+    <!-- ====================================================================
+         Toolbar : titre de page + actions
+         ==================================================================== -->
+    <div class="page-title-row">
+      <div>
+        <h1>{{PAGE_HEADING}}</h1>
+        {{PAGE_SUBTITLE}}
+      </div>
+      <div class="toolbar-actions">
+        {{TOOLBAR_ACTIONS}}
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         KPI grid (4 cartes, données injectées ou statiques)
+         ==================================================================== -->
+    {{KPI_BLOCK}}
+
+    <!-- ====================================================================
+         Filter bar (formulaire de filtres dense)
+         ==================================================================== -->
+    {{FILTER_BLOCK}}
+
+    <!-- ====================================================================
+         Contenu principal (listing, table, cartes, etc.)
+         ==================================================================== -->
+    {{MAIN_CONTENT}}
+
+  </main>
+
+  <!-- ====================================================================
+       FOOTER · Nimbus simple (app interne)
+       ==================================================================== -->
+  <footer class="footer" style="padding: 3rem var(--container-px) 1.5rem;">
+    <div class="footer-bottom" style="padding-top:0; border-top:none; max-width:var(--container-max);">
+      <span>© {{YEAR}} Kopo® · {{APP_NAME}} · Service interne</span>
+      <span>Brest, France</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+</body>
+</html>

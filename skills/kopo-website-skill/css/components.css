@@ -1,0 +1,439 @@
+/* ============================================================================
+   Kopo · Components for functional pages (internal + app)
+   À importer en complément de shared.css pour les pages NON-vitrine.
+   Source : patterns Itaycan + Kopo Download.
+   ============================================================================ */
+
+/* === HERO HALO · pour applications fonctionnelles ========================= */
+.kopo-hero-halo {
+  background: radial-gradient(circle at 0% 0%, #ffffff, #57b8ff, #b2dbff, #bcc8d2);
+  padding: 4rem var(--container-px);
+}
+.kopo-hero-halo h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+.kopo-hero-halo .lead {
+  margin-top: 0.6rem;
+  font-size: 1.1rem;
+  color: rgba(20,26,30,0.7);
+  max-width: 60ch;
+}
+
+/* === CARDS générique ====================================================== */
+.kopo-card {
+  background: var(--cumulus);
+  border: 1px solid var(--stratus-soft);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px rgba(20,26,30,0.04);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.kopo-card:hover {
+  box-shadow: 0 8px 24px -12px rgba(20,26,30,0.12);
+  border-color: var(--stratus);
+}
+.kopo-card-padded { padding: 1.5rem; }
+.kopo-card-compact { padding: 1rem; }
+
+/* === KPI cards ============================================================ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.kpi-card {
+  padding: 1.5rem;
+  background: var(--cumulus);
+  border: 1px solid var(--stratus-soft);
+  border-radius: var(--radius-md);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.kpi-card:hover { border-color: var(--cirrus); box-shadow: 0 4px 16px -8px rgba(87,184,255,0.18); }
+.kpi-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nimbus-soft);
+}
+.kpi-value {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--nimbus);
+  line-height: 1;
+}
+.kpi-value .unit { font-size: 1rem; color: var(--stratus); margin-left: 0.2em; font-weight: 500; }
+.kpi-delta {
+  margin-top: 0.4rem;
+  display: inline-flex; align-items: center; gap: 0.3em;
+  font-size: 0.78rem; font-weight: 500;
+}
+/* Sémantique de tendance : Cirrus pour positif, Stratus pour stable,
+   Sirocco UNIQUEMENT si la tendance signale réellement un incident.
+   Pour une simple baisse "informationnelle", utiliser Nimbus dilué. */
+.kpi-delta.up { color: var(--cirrus); }
+.kpi-delta.down { color: rgba(20,26,30,0.55); }
+.kpi-delta.flat { color: var(--stratus); }
+.kpi-delta.alert { color: var(--sirocco); }
+
+@media (max-width: 1000px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+/* === BADGES (strictement palette Kopo, aucune couleur hors charte) ======== */
+.kopo-badge {
+  display: inline-flex; align-items: center; gap: 0.3em;
+  padding: 2px 8px;
+  font-size: 0.72rem; font-weight: 500;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+/* Sémantique « actif / OK » : Cirrus → Virga selon l'intensité voulue */
+.badge-cirrus  { background: rgba(87,184,255,0.12);  color: var(--cirrus); }
+.badge-virga   { background: rgba(133,186,255,0.14); color: #2f7ed4; }
+/* Info / nouveau / disponible : Arcus dilué */
+.badge-arcus   { background: rgba(178,219,255,0.30); color: var(--vesper); }
+/* Désactivé / brouillon / neutre */
+.badge-stratus { background: rgba(188,200,210,0.30); color: var(--nimbus-soft); }
+/* Beta / attention douce / en attente : Haboob (beige chaud) */
+.badge-haboob  { background: rgba(249,236,226,0.85); color: #8a5a2b; border: 1px solid rgba(138,90,43,0.18); }
+/* Majeur / premium / éditorial : Aurore (mauve crépusculaire) */
+.badge-aurore  { background: rgba(80,74,151,0.10);   color: var(--aurore); }
+.badge-vesper  { background: rgba(35,37,93,0.10);    color: var(--vesper); }
+/* Erreur / alerte critique : Sirocco (usage RARE et intentionnel) */
+.badge-sirocco { background: rgba(230,33,58,0.08);   color: var(--sirocco); }
+
+/* === SCORE BAR ============================================================ */
+.score-bar {
+  height: 8px;
+  background: #f0f4f8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  background: var(--cirrus);
+  border-radius: 999px;
+  transition: width 600ms var(--ease-out);
+}
+.score-fill.aurore { background: var(--aurore); }
+.score-fill.red { background: var(--sirocco); }
+
+/* === SKELETON (loading shimmer) =========================================== */
+.skel {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0eeff 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: kopo-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+@keyframes kopo-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* === SPINNER 4 segments (Cirrus / Virga / Arcus / Aurore) ================= */
+.kopo-spinner {
+  width: 40px; height: 40px;
+  position: relative;
+}
+.kopo-spinner::before,
+.kopo-spinner::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  animation: kopo-ring-spin 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+.kopo-spinner::before {
+  border-top-color: var(--cirrus);
+  border-right-color: var(--virga);
+}
+.kopo-spinner::after {
+  border-bottom-color: var(--arcus);
+  border-left-color: var(--aurore);
+  animation-delay: -0.4s;
+}
+@keyframes kopo-ring-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === FILTER BAR =========================================================== */
+.filter-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--cumulus);
+  border: 1px solid var(--stratus-soft);
+  border-radius: var(--radius-md);
+}
+.filter-bar label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--nimbus-soft);
+  margin-bottom: 0.3rem;
+}
+.filter-bar select,
+.filter-bar input[type="text"],
+.filter-bar input[type="number"],
+.filter-bar input[type="search"] {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: var(--nimbus);
+  background: var(--cumulus);
+  border: 1px solid var(--stratus);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.filter-bar select:focus,
+.filter-bar input:focus {
+  outline: none;
+  border-color: var(--cirrus);
+  box-shadow: 0 0 0 3px rgba(87,184,255,0.12);
+}
+
+/* === LISTING TABLE ======================================================== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.data-table thead th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nimbus-soft);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--stratus);
+  background: #fafbfc;
+}
+.data-table tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--stratus-soft);
+  color: var(--nimbus);
+  vertical-align: middle;
+}
+.data-table tbody tr { transition: background-color 0.15s ease; }
+.data-table tbody tr:hover { background: rgba(87,184,255,0.04); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table .num { font-variant-numeric: tabular-nums; text-align: right; }
+.data-table .muted { color: var(--stratus); }
+.data-table.compact tbody td { padding: 0.6rem 1rem; }
+
+@media (max-width: 768px) {
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* === LISTING CARDS (grille type Itaycan) ================================== */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.listing-card {
+  background: var(--cumulus);
+  border: 1px solid var(--stratus-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  display: flex; flex-direction: column;
+}
+.listing-card:hover {
+  border-color: var(--cirrus);
+  box-shadow: 0 8px 24px -12px rgba(87,184,255,0.25);
+  transform: translateY(-2px);
+}
+.listing-card .visual {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--arcus) 0%, var(--stratus) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.listing-card .body { padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1; }
+.listing-card .title { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+.listing-card .price { font-size: 1.25rem; font-weight: 700; color: var(--cirrus); }
+.listing-card .meta { font-size: 0.78rem; color: var(--nimbus-soft); display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.listing-card .footer-row {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--stratus-soft);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.78rem;
+}
+
+/* === SIDEBAR LAYOUT (pour pages app avec navigation latérale) ============ */
+.app-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 64px);
+}
+.app-sidebar {
+  background: var(--cumulus);
+  border-right: 1px solid var(--stratus-soft);
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+.app-sidebar h4 {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stratus);
+  margin: 1.25rem 0 0.5rem;
+}
+.app-sidebar h4:first-child { margin-top: 0; }
+.app-sidebar ul { display: flex; flex-direction: column; gap: 0.15rem; }
+.app-sidebar ul a {
+  display: flex; align-items: center; gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--nimbus-soft);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.app-sidebar ul a:hover { background: rgba(87,184,255,0.08); color: var(--nimbus); }
+.app-sidebar ul a.active { background: rgba(87,184,255,0.12); color: var(--cirrus); }
+.app-sidebar ul a svg { width: 16px; height: 16px; flex-shrink: 0; }
+.app-main { padding: 2rem var(--container-px); min-width: 0; }
+
+@media (max-width: 900px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .app-sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--stratus-soft); }
+}
+
+/* === STATUS LED · indicateurs live (palette Kopo stricte) ================= */
+.led {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--stratus);
+  position: relative;
+}
+/* En ligne / actif : Cirrus (le bleu Kopo signifie « bon ») */
+.led.on    { background: var(--cirrus); box-shadow: 0 0 0 3px rgba(87,184,255,0.18); }
+/* Live / en cours : Cirrus pulse */
+.led.live  { background: var(--cirrus); box-shadow: 0 0 0 3px rgba(87,184,255,0.20); animation: led-pulse 2s ease-in-out infinite; }
+/* Attention douce / dégradé : Haboob avec contour Aurore léger */
+.led.warn  { background: var(--haboob); box-shadow: 0 0 0 3px rgba(80,74,151,0.20); border: 1px solid rgba(138,90,43,0.4); }
+/* Alerte / hors ligne : Sirocco — UNIQUEMENT pour les vrais incidents */
+.led.alert { background: var(--sirocco); box-shadow: 0 0 0 3px rgba(230,33,58,0.18); animation: led-pulse 1.4s ease-in-out infinite; }
+@keyframes led-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* === CODE BLOCK (pour pages doc) ========================================== */
+.code-block {
+  background: var(--nimbus);
+  color: #e1e7ee;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  overflow-x: auto;
+  position: relative;
+}
+.code-block .lang {
+  position: absolute; top: 0.55rem; right: 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--stratus);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.code-inline {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  font-size: 0.85em;
+  background: rgba(87,184,255,0.08);
+  color: var(--cirrus);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* === SECTION ALT (fond gris doux pour rythmer les pages internes) ======== */
+.section-alt { background: #F7F8FA; }
+
+/* === HEADER STICKY SIMPLE (pour internal et app, sans blur fancy) ======== */
+.nav-sticky {
+  position: sticky; top: 0; z-index: 50;
+  padding: 0.85rem var(--container-px);
+  background: var(--cumulus);
+  border-bottom: 1px solid var(--stratus-soft);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem;
+}
+.nav-sticky .nav-logo { font-size: 1.1rem; }
+.nav-sticky .nav-logo .kobot-mini { width: 32px; height: 32px; }
+.nav-sticky .nav-links { font-size: 0.88rem; gap: 1.75rem; }
+.nav-sticky .nav-links a { opacity: 0.85; }
+.nav-sticky .nav-links a:hover { color: var(--cirrus); opacity: 1; }
+.nav-sticky .nav-links a.active { color: var(--cirrus); }
+
+/* === PAGE TITLE / TOOLBAR (en haut d'une page d'app ou interne) ========== */
+.page-title-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.page-title-row h1 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+}
+.page-title-row h1::after {
+  content: '';
+  display: block;
+  width: 90px; height: 3px;
+  background: var(--cirrus);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+.toolbar-actions { display: flex; gap: 0.5rem; }
+
+/* === BREADCRUMB =========================================================== */
+.breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8rem; color: var(--nimbus-soft);
+  margin-bottom: 1rem;
+}
+.breadcrumb a { color: var(--nimbus-soft); transition: color 0.15s ease; }
+.breadcrumb a:hover { color: var(--cirrus); }
+.breadcrumb .sep { color: var(--stratus); }
+.breadcrumb .current { color: var(--nimbus); font-weight: 500; }
+
+/* === ALERT / CALLOUT (palette Kopo stricte) =============================== */
+.callout {
+  display: flex; gap: 0.85rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--cirrus);
+  background: rgba(87,184,255,0.06);
+  font-size: 0.9rem;
+}
+/* Info / contexte / note : Cirrus */
+.callout.info  { border-left-color: var(--cirrus); background: rgba(87,184,255,0.06); }
+/* Tip / suggestion : Aurore (mauve crépusculaire pour ce qui « éclaire ») */
+.callout.tip   { border-left-color: var(--aurore); background: rgba(80,74,151,0.06); }
+/* Attention douce : Haboob (beige chaud, signal d'attention non agressif) */
+.callout.warn  { border-left-color: #8a5a2b; background: rgba(249,236,226,0.55); }
+/* Erreur / incident critique : Sirocco (usage rare et intentionnel) */
+.callout.error { border-left-color: var(--sirocco); background: rgba(230,33,58,0.05); }
+.callout .icon { flex-shrink: 0; width: 20px; height: 20px; color: inherit; }
+.callout .body strong { display: block; margin-bottom: 0.25rem; color: var(--nimbus); }
+.callout.warn .icon { color: #8a5a2b; }
+.callout.tip .icon  { color: var(--aurore); }
+.callout.info .icon { color: var(--cirrus); }
+.callout.error .icon { color: var(--sirocco); }

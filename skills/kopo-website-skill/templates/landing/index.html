@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{META_DESC}}" />
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="icon" type="image/x-icon" href="assets/logos/kopologo.ico" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+</head>
+<body>
+
+  <!-- ====================================================================
+       NAV
+       ==================================================================== -->
+  <nav class="nav">
+    <a href="#home" class="nav-logo" aria-label="{{BRAND_NAME}} · accueil">
+      <span class="kobot-mini"></span>
+      <span>{{BRAND_NAME}}<sup>®</sup></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Fonctionnalités</a></li>
+      <li><a href="#infra">Infrastructure</a></li>
+      <li><a href="#pricing">Tarifs</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">{{NAV_CTA}}</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <aside class="nav-mobile" id="navMobile" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      <li><a href="#features">Fonctionnalités</a></li>
+      <li><a href="#infra">Infrastructure</a></li>
+      <li><a href="#pricing">Tarifs</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#cta" class="btn btn-primary">{{NAV_CTA}}</a>
+  </aside>
+
+  <!-- ====================================================================
+       HERO · Aube + Kobot suspendu interactif
+       ==================================================================== -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow reveal">
+          <span class="dot"></span>
+          <span>{{HERO_EYEBROW}}</span>
+        </div>
+        <h1 class="hero-title reveal delay-1">{{HERO_TITLE_HTML}}</h1>
+        <p class="hero-sub reveal delay-2">{{HERO_SUB}}</p>
+        <div class="hero-ctas reveal delay-3">
+          <a href="#cta" class="btn btn-primary">{{HERO_CTA_PRIMARY}} <span class="arrow">→</span></a>
+          <a href="#features" class="btn btn-ghost">{{HERO_CTA_SECONDARY}}</a>
+        </div>
+      </div>
+      <div class="hero-kobot-wrap reveal delay-1">
+        <div class="kobot-swing-anchor">
+          <div class="kobot kobot-longarm" data-interactive id="heroKobot">
+            <img src="assets/logos/kopologo-longarm.png" alt="Kobot {{BRAND_NAME}}" draggable="false" />
+            <div class="pupil-zone"><div class="pupil"></div></div>
+            <div class="kobot-sweat" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       MANIFESTO (optionnel — gradient Brume)
+       ==================================================================== -->
+  <section id="about" class="manifesto reveal" data-section-reveal>
+    <div class="manifesto-inner">
+      <div class="manifesto-tag reveal">Manifesto / 01</div>
+      <p class="manifesto-quote reveal delay-1">{{MANIFESTO_HTML}}</p>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FEATURES · 3 cartes (lift au hover)
+       ==================================================================== -->
+  <section id="features" class="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <span class="section-eyebrow">02 Fonctionnalités</span>
+        <h2 class="section-title">{{FEATURES_TITLE}}</h2>
+      </div>
+      <div class="services-grid">
+        {{FEATURES_CARDS}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       INFRASTRUCTURE · gradient Halo (Vesper → Aurore)
+       ==================================================================== -->
+  <section id="infra" class="infra">
+    <div class="infra-inner-wrap">
+      <div class="infra-header reveal">
+        <span class="section-eyebrow">03 Infrastructure</span>
+        <h2 class="section-title">{{INFRA_TITLE}}</h2>
+        <p class="section-lead">{{INFRA_LEAD}}</p>
+      </div>
+      <div class="infra-features">
+        {{INFRA_FEATURES}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       STATS · gradient Encre (Nimbus → Vesper)
+       ==================================================================== -->
+  <section class="stats">
+    <div class="stats-inner">
+      {{STATS_BLOCKS}}
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       PRICING · 3 cards, featured au centre
+       ==================================================================== -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <span class="section-eyebrow">04 Tarifs</span>
+        <h2 class="section-title">{{PRICING_TITLE}}</h2>
+      </div>
+      <div class="pricing-grid">
+        {{PRICING_CARDS}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FAQ · accordéon léger
+       ==================================================================== -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="faq-header reveal">
+          <span class="section-eyebrow">05 FAQ</span>
+          <h2 class="section-title">{{FAQ_TITLE}}</h2>
+        </div>
+        {{FAQ_ITEMS}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CTA BAND · gradient Orage (Cirrus → Arcus)
+       ==================================================================== -->
+  <section id="cta" class="cta-band">
+    <div class="cta-band-inner reveal">
+      <div>
+        <h2>{{CTA_TITLE}}</h2>
+        <p>{{CTA_SUB}}</p>
+      </div>
+      <a href="mailto:{{CONTACT_EMAIL}}" class="btn btn-primary">{{CTA_BUTTON}} <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FOOTER · Nimbus
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="kobot-mini"></span><span>{{BRAND_NAME}}<sup>®</sup></span></div>
+        <p>{{FOOTER_TAGLINE}}</p>
+      </div>
+      <div>
+        <h4>Produit</h4>
+        <ul>
+          <li><a href="#features">Fonctionnalités</a></li>
+          <li><a href="#infra">Infrastructure</a></li>
+          <li><a href="#pricing">Tarifs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://kopo.systems">Kopo Systems</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="mentions.html">Mentions légales</a></li>
+          <li><a href="privacy.html">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{YEAR}} Kopo® · Tous droits réservés. Kopo est une marque déposée.</span>
+      <span>Brest, France</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+</body>
+</html>

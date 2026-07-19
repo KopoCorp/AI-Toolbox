@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{META_DESC}}" />
+  <title>{{PAGE_TITLE}}</title>
+  <link rel="icon" type="image/x-icon" href="assets/logos/kopologo.ico" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- ====================================================================
+       NAV sticky simple (style Kopo Download)
+       ==================================================================== -->
+  <header class="nav-sticky">
+    <a href="#" class="nav-logo" aria-label="{{BRAND_NAME}}">
+      <span class="kobot-mini"></span>
+      <span>{{BRAND_NAME}}<sup>®</sup></span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        {{NAV_LINKS}}
+      </ul>
+    </nav>
+    <a href="{{NAV_CTA_HREF}}" class="nav-cta">{{NAV_CTA}}</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <aside class="nav-mobile" id="navMobile" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      {{NAV_LINKS_MOBILE}}
+    </ul>
+    <a href="{{NAV_CTA_HREF}}" class="btn btn-primary">{{NAV_CTA}}</a>
+  </aside>
+
+  <main>
+    <!-- ====================================================================
+         HERO interne (banner image + overlay laiteux, ou Halo)
+         ==================================================================== -->
+    <section style="position:relative; padding:6rem var(--container-px) 4rem; background: linear-gradient(170deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.82) 100%), url('assets/illustrations/banniere-jour.jpg') center/cover no-repeat; overflow:hidden;">
+      <div class="container" style="position:relative; z-index:2;">
+        <div class="breadcrumb">{{BREADCRUMB}}</div>
+        <h1 style="font-size:clamp(2rem,4.5vw,3rem); font-weight:700; letter-spacing:-0.025em; line-height:1.05;">{{HERO_TITLE}}</h1>
+        <div class="cirrus-bar"></div>
+        <p style="font-size:1.05rem; color:var(--nimbus-soft); max-width:60ch; margin-top:0.8rem;">{{HERO_SUB}}</p>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTIONS DE CONTENU · grille 12 colonnes
+         ==================================================================== -->
+    {{CONTENT_SECTIONS}}
+
+  </main>
+
+  <!-- ====================================================================
+       FOOTER · Nimbus
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="kobot-mini"></span><span>{{BRAND_NAME}}<sup>®</sup></span></div>
+        <p>{{FOOTER_TAGLINE}}</p>
+      </div>
+      {{FOOTER_COLUMNS}}
+    </div>
+    <div class="footer-bottom">
+      <span>© {{YEAR}} Kopo® · Tous droits réservés.</span>
+      <span>Brest, France</span>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+</body>
+</html>
