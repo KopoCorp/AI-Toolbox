@@ -30,16 +30,23 @@ npx skills add https://github.com/KopoCorp/AI-Toolbox.git
 
 ## Cloner le dépôt (pour les collaborateurs)
 
-Les skills externes sont liés via git submodules. Pour tout récupérer :
+Tous les skills, y compris ceux d'origine externe, sont copiés directement dans le dépôt (pas de git submodules). Un clone classique suffit :
 
 ```bash
-git clone --recursive https://git.kopo/Kopo/AI-Toolbox.git
+git clone https://git.kopo/Kopo/AI-Toolbox.git
 ```
 
-Si le dépôt est déjà cloné sans `--recursive` :
+## Mettre à jour un skill externe
+
+Ces skills sont vendored (copie figée d'une version en amont), pas liés en live. Pour mettre à jour `<skill>` :
 
 ```bash
-git submodule update --init --recursive
+git clone --depth 1 <url-du-repo-amont> /tmp/<skill>
+rm -rf skills/<skill>
+cp -r /tmp/<skill> skills/<skill>
+rm -rf skills/<skill>/.git
+git add skills/<skill>
+git commit -m "chore: update <skill>"
 ```
 
 ## Structure
@@ -48,11 +55,11 @@ git submodule update --init --recursive
 AI-Toolbox/
 ├── skills/
 │   ├── kopo-website-skill/       ← skill interne
-│   ├── humanizer/                ← submodule (blader/humanizer)
-│   ├── dev-methodology/          ← submodule (obra/superpowers)
-│   ├── llm-coding-guidelines/    ← submodule (multica-ai/andrej-karpathy-skills)
-│   ├── clarify-before-coding/    ← submodule (mattpocock/skills)
-│   ├── find-skills/              ← submodule (vercel-labs/skills)
-│   └── agent-browser/            ← submodule (vercel-labs/agent-browser)
+│   ├── humanizer/                ← vendored (blader/humanizer)
+│   ├── dev-methodology/          ← vendored (obra/superpowers)
+│   ├── llm-coding-guidelines/    ← vendored (multica-ai/andrej-karpathy-skills)
+│   ├── clarify-before-coding/    ← vendored (mattpocock/skills)
+│   ├── find-skills/              ← vendored (vercel-labs/skills)
+│   └── agent-browser/            ← vendored (vercel-labs/agent-browser)
 └── README.md
 ```
