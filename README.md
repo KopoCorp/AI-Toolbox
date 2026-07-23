@@ -7,13 +7,13 @@ Dépôt de skills IA partagés pour l'équipe. Compatible avec tous les agents s
 Depuis la Forgejo interne :
 
 ```bash
-npx skills add https://git.kopo/Kopo/AI-Toolbox.git
+npx skills add https://git.kopo/Kopo/tool-ai --all
 ```
 
 Ou depuis le miroir GitHub :
 
 ```bash
-npx skills add https://github.com/KopoCorp/AI-Toolbox.git
+npx skills add https://github.com/KopoCorp/AI-Toolbox.git --all
 ```
 
 ## Skills disponibles
